@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio-Fluid Blender Lab</title>
+    <!-- Link to your styling sheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Including the free Chart.js library for our graphs later -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="lab-container">
+        <!-- Header Section -->
+        <header>
+            <h1>🍃 Bio-Fluid Blender Laboratory</h1>
+            <p>Adjust the sliders to blend natural bases and simulate physical properties in real-time.</p>
+        </header>
+
+        <div class="main-layout">
+            <!-- Left Panel: Controls and Sliders -->
+            <section class="control-panel">
+                <h2>🧪 Mixture Settings</h2>
+                
+                <!-- Slider 1: The Blend Ratio -->
+                <div class="control-group">
+                    <label for="blendRatio">Blend Ratio (Heavy Plant Oil vs Light Natural Ester):</label>
+                    <div class="slider-wrapper">
+                        <span>0%</span>
+                        <input type="range" id="blendRatio" min="0" max="100" value="50">
+                        <span>100%</span>
+                    </div>
+                    <p class="slider-readout">Heavy Oil Base: <span id="ratioValue">50</span>%</p>
+                </div>
+
+                <!-- Slider 2: Operating Temperature -->
+                <div class="control-group">
+                    <label for="temperature">Fluid Temperature (°C):</label>
+                    <div class="slider-wrapper">
+                        <span>20°C</span>
+                        <input type="range" id="temperature" min="20" max="80" value="40">
+                        <span>80°C</span>
+                    </div>
+                    <p class="slider-readout">Target Temperature: <span id="tempValue">40</span>°C</p>
+                </div>
+            </section>
+
+            <!-- Right Panel: Live Diagnostics & Charts -->
+            <section class="results-panel">
+                <h2>📊 Fluid Diagnostics</h2>
+                
+                <div class="metrics-grid">
+                    <!-- Metric 1: Viscosity Output -->
+                    <div class="metric-card">
+                        <h3>Estimated Thickness</h3>
+                        <p class="metric-number"><span id="viscosityResult">--</span> cSt</p>
+                        <p class="metric-label">Kinematic Viscosity</p>
+                    </div>
+
+                    <!-- Metric 2: Flash Point Output -->
+                    <div class="metric-card">
+                        <h3>Thermal Safety Line</h3>
+                        <p class="metric-number"><span id="flashResult">--</span> °C</p>
+                        <p class="metric-label">Estimated Flash Point</p>
+                    </div>
+                </div>
+
+                <!-- Live Status Alert Box -->
+                <div id="safetyStatus" class="status-box">
+                    System Safety Rating: <span id="statusText">Awaiting Data...</span>
+                </div>
+
+                <!-- Graph Container for Chart.js -->
+                <div class="chart-container">
+                    <canvas id="propertyChart"></canvas>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Link to your JavaScript logic file -->
+    <script src="app.js"></script>
+</body>
+</html>
